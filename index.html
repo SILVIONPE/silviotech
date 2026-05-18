@@ -3,1915 +3,1727 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SilvioTech | Optimización Gamer y Soporte Técnico</title>
-  <meta name="description" content="Optimización gamer, soporte técnico, instalación de Windows, limpieza y mejora de rendimiento para PC y notebooks.">
-  <meta name="theme-color" content="#0b1020">
+  <title>SilvioTech | Optimización Gamer & Soporte Técnico en Paraguay</title>
+  <meta name="description" content="Optimización gamer, soporte técnico, instalación de Windows, limpieza y mejora de rendimiento para PC y notebooks en Paraguay.">
+  <meta name="theme-color" content="#060a12">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 
   <style>
+    /* ─── TOKENS ──────────────────────────────────────────── */
     :root {
-      --bg: #070b14;
-      --bg-2: #0d1324;
-      --panel: rgba(18, 25, 45, 0.78);
-      --panel-strong: rgba(15, 21, 38, 0.96);
-      --text: #f5f7ff;
-      --muted: #a9b3c9;
-      --line: rgba(255,255,255,0.08);
-      --primary: #38bdf8;
-      --primary-2: #22d3ee;
-      --success: #25d366;
-      --danger: #ff5d73;
-      --shadow: 0 20px 50px rgba(0,0,0,0.35);
-      --radius: 22px;
-      --radius-sm: 14px;
-      --max: 1200px;
-      --nav-h: 78px;
+      --bg:          #060a12;
+      --bg-2:        #0a1020;
+      --surface:     rgba(12, 18, 34, 0.82);
+      --surface-2:   rgba(16, 24, 44, 0.94);
+      --text:        #eef2ff;
+      --muted:       #7a8aab;
+      --dim:         rgba(255,255,255,0.05);
+      --border:      rgba(255,255,255,0.07);
+      --border-hi:   rgba(96,200,255,0.30);
+      --cyan:        #3dd9f5;
+      --cyan-2:      #7be5fb;
+      --cyan-glow:   rgba(61,217,245,0.18);
+      --green:       #25d366;
+      --red:         #ff3c5a;
+      --gold:        #ffd46a;
+      --radius:      20px;
+      --radius-sm:   12px;
+      --shadow:      0 24px 64px rgba(0,0,0,0.50);
+      --nav-h:       74px;
+      --max:         1220px;
+      --font-display: 'Rajdhani', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    /* ─── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(56,189,248,0.15), transparent 22%),
-        radial-gradient(circle at 85% 15%, rgba(34,211,238,0.13), transparent 24%),
-        radial-gradient(circle at 80% 80%, rgba(139,92,246,0.10), transparent 22%),
-        linear-gradient(180deg, #050810, #0b1020 35%, #070b14 100%);
+      font-family: var(--font-body);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
       overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button, input, textarea, select { font: inherit; }
 
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    .container {
-      width: min(100% - 32px, var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 92px 0;
-      position: relative;
-    }
-
-    .section-title {
-      font-size: clamp(32px, 4vw, 44px);
-      text-align: center;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 auto 48px;
-      font-size: 17px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 24px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(20, 28, 50, 0.9), rgba(11, 16, 32, 0.95));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(56,189,248,0.35);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.42);
-    }
-
-    .glow {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .glow::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(120deg, rgba(56,189,248,0.0), rgba(56,189,248,0.22), rgba(34,211,238,0.0));
-      transform: translateX(-100%);
-      transition: transform 0.8s ease;
+    /* ─── NOISE GRAIN ─────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.025;
       pointer-events: none;
+      z-index: 9999;
     }
 
-    .glow:hover::before {
-      transform: translateX(100%);
-    }
+    /* ─── UTILS ───────────────────────────────────────────── */
+    .wrap { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+    .section { padding: 96px 0; position: relative; }
 
-    .badge {
+    .sec-label {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.25);
-      background: rgba(56,189,248,0.08);
-      color: #9be7ff;
-      font-size: 14px;
+      font-family: var(--font-display);
+      font-size: 13px;
       font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+    .sec-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--cyan);
+      border-radius: 2px;
     }
 
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .sec-sub {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .center { text-align: center; }
+    .center .sec-sub { margin: 0 auto; }
+    .center .sec-label { justify-content: center; }
+
+    .grid { display: grid; gap: 20px; }
+
+    /* ─── GLASS CARD ──────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hi);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px var(--border-hi);
+    }
+
+    /* glide shimmer on hover */
+    .shimmer { position: relative; overflow: hidden; }
+    .shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -120%;
+      width: 60%; height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.04), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+    .shimmer:hover::after { left: 160%; }
+
+    /* ─── BUTTONS ─────────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 50px;
+      gap: 9px;
+      min-height: 48px;
       padding: 0 22px;
-      border-radius: 14px;
+      border-radius: var(--radius-sm);
       border: none;
       cursor: pointer;
-      font-weight: 800;
-      transition: transform 0.25s ease, opacity 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
       white-space: nowrap;
     }
-
-    .btn:hover {
-      transform: translateY(-3px);
-    }
+    .btn:hover { transform: translateY(-3px); }
 
     .btn-primary {
-      color: #03111d;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-      box-shadow: 0 12px 30px rgba(56,189,248,0.30);
+      background: linear-gradient(110deg, #22cfe8, #3dd9f5, #7be5fb);
+      color: #060e16;
+      box-shadow: 0 10px 28px rgba(61,217,245,0.28);
     }
+    .btn-primary:hover { box-shadow: 0 16px 40px rgba(61,217,245,0.42); }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.04);
+    .btn-ghost {
+      background: transparent;
       color: var(--text);
-      border: 1px solid rgba(255,255,255,0.10);
+      border: 1px solid var(--border-hi);
     }
+    .btn-ghost:hover { background: var(--cyan-glow); }
 
-    .btn-whatsapp {
-      background: var(--success);
+    .btn-wa {
+      background: #25d366;
       color: #fff;
-      box-shadow: 0 12px 30px rgba(37,211,102,0.22);
+      box-shadow: 0 10px 28px rgba(37,211,102,0.22);
     }
+    .btn-wa:hover { box-shadow: 0 16px 40px rgba(37,211,102,0.36); }
 
-    .tag {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: #dbe3f6;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    /* NAV */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(14px);
-      background: rgba(5, 8, 16, 0.68);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .nav {
+    /* ─── NAV ─────────────────────────────────────────────── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 900;
       height: var(--nav-h);
+      backdrop-filter: blur(18px) saturate(160%);
+      background: rgba(6,10,18,0.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      font-size: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(34,211,238,0.08));
-      border: 1px solid rgba(56,189,248,0.20);
-      color: var(--primary);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-    }
-
-    .brand span:last-child {
-      background: linear-gradient(90deg, #ffffff, #8be7ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .nav-links a {
-      color: #d8e1f0;
+      gap: 10px;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 15px;
-      position: relative;
+      font-size: 22px;
+      letter-spacing: 0.03em;
     }
+    .brand-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(61,217,245,0.20), rgba(61,217,245,0.05));
+      border: 1px solid rgba(61,217,245,0.25);
+      color: var(--cyan);
+      font-size: 20px;
+    }
+    .brand-text { background: linear-gradient(90deg, #fff 30%, var(--cyan-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
+    .nav-links { display: flex; align-items: center; gap: 22px; }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: #b8c6e0;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .nav-links a::after {
-      content: "";
+      content: '';
       position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      bottom: -6px; left: 0;
+      width: 0; height: 2px;
+      border-radius: 2px;
+      background: var(--cyan);
       transition: width 0.25s ease;
     }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .menu-toggle {
+    .menu-btn {
       display: none;
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--dim);
       color: var(--text);
       cursor: pointer;
       position: relative;
     }
-
-    .menu-toggle span,
-    .menu-toggle::before,
-    .menu-toggle::after {
-      content: "";
+    .menu-btn span, .menu-btn::before, .menu-btn::after {
+      content: '';
       position: absolute;
-      left: 12px;
-      width: 22px;
-      height: 2px;
-      background: white;
-      border-radius: 999px;
-      transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+      left: 11px; width: 20px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: 0.25s ease;
     }
+    .menu-btn span { top: 21px; }
+    .menu-btn::before { top: 14px; }
+    .menu-btn::after { top: 28px; }
+    .menu-btn.open span { opacity: 0; }
+    .menu-btn.open::before { top: 21px; transform: rotate(45deg); }
+    .menu-btn.open::after { top: 21px; transform: rotate(-45deg); }
 
-    .menu-toggle span {
-      top: 23px;
+    /* mobile menu */
+    .mobile-menu { display: none; padding-bottom: 12px; }
+    .mobile-panel {
+      background: rgba(8,12,24,0.97);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
     }
-
-    .menu-toggle::before {
-      top: 16px;
+    .mobile-panel nav { display: grid; gap: 4px; margin-bottom: 12px; }
+    .mobile-panel nav a {
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      color: #c8d6f0;
+      background: var(--dim);
+      transition: background 0.2s, color 0.2s;
     }
+    .mobile-panel nav a:hover { background: var(--cyan-glow); color: #fff; }
+    .mobile-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hidden { display: none !important; }
 
-    .menu-toggle::after {
-      top: 30px;
-    }
-
-    .menu-toggle.open span {
-      opacity: 0;
-    }
-
-    .menu-toggle.open::before {
-      top: 23px;
-      transform: rotate(45deg);
-    }
-
-    .menu-toggle.open::after {
-      top: 23px;
-      transform: rotate(-45deg);
-    }
-
-    /* HERO */
+    /* ─── HERO ────────────────────────────────────────────── */
     .hero {
-      padding: 56px 0 40px;
+      padding: 52px 0 56px;
       position: relative;
       overflow: hidden;
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+    }
+
+    /* ambient bg blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; left: -120px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(61,217,245,0.10) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(123,229,251,0.07) 0%, transparent 65%);
+      pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 32px;
+      gap: 36px;
       align-items: center;
-      min-height: calc(100vh - var(--nav-h) - 40px);
+      width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-copy h1 {
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-      margin: 18px 0 18px;
-      max-width: 760px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(61,217,245,0.22);
+      background: rgba(61,217,245,0.07);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cyan-2);
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
+    .eyebrow-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+      animation: blink 1.8s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    .hero-copy p {
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 6.5vw, 78px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-h1 .accent { color: var(--cyan); }
+
+    .hero-lead {
       color: var(--muted);
-      max-width: 700px;
-      font-size: 18px;
-      margin-bottom: 28px;
+      font-size: 17px;
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.7;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
 
-    .hero-tags {
+    .hero-trust {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #8fa3c8;
+    }
+    .trust-pill .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
     }
 
     .hero-note {
-      margin-top: 16px;
-      color: #ffc5ce;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: #f87a8c;
       font-weight: 700;
-      font-size: 15px;
     }
 
-    .hero-panel {
-      padding: 28px;
+    /* ─── DIAGNOSTIC PANEL ────────────────────────────────── */
+    .diag-panel {
+      padding: 24px;
       position: relative;
       isolation: isolate;
     }
-
-    .hero-panel::after {
-      content: "";
+    .diag-panel::before {
+      content: '';
       position: absolute;
-      inset: auto -20% -20% auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(56,189,248,0.30), transparent 60%);
+      inset: -1px;
+      border-radius: calc(var(--radius) + 1px);
+      background: linear-gradient(135deg, rgba(61,217,245,0.25), transparent 60%, rgba(61,217,245,0.08));
       z-index: -1;
-      filter: blur(10px);
     }
 
-    .hero-panel-top {
+    .diag-header {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       align-items: center;
       margin-bottom: 18px;
     }
-
-    .panel-chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(56,189,248,0.18);
-      background: rgba(56,189,248,0.07);
-      color: #9be7ff;
+    .diag-title {
+      font-family: var(--font-display);
       font-size: 13px;
-      font-weight: 800;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin: 20px 0 24px;
-    }
-
-    .stat-mini {
-      padding: 16px 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      text-align: center;
-    }
-
-    .stat-mini strong {
-      display: block;
-      font-size: 24px;
-      color: #fff;
-      margin-bottom: 3px;
-    }
-
-    .stat-mini span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .checklist {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .checklist li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #d9e3f7;
       font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .diag-badge {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(37,211,102,0.14);
+      border: 1px solid rgba(37,211,102,0.25);
+      color: #5ae08a;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
     }
 
-    .check {
-      width: 22px;
-      height: 22px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(37,211,102,0.18);
-      color: #75ef9d;
-      font-size: 13px;
+    .diag-meters { display: grid; gap: 14px; margin-bottom: 20px; }
+    .meter-row { display: grid; gap: 6px; }
+    .meter-top { display: flex; justify-content: space-between; align-items: center; }
+    .meter-label { font-size: 12px; font-weight: 700; color: #8fa3c8; letter-spacing: 0.04em; text-transform: uppercase; font-family: var(--font-display); }
+    .meter-val { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: #eef2ff; }
+    .meter-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .meter-fill {
+      height: 100%;
+      border-radius: 999px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fill-bad  { background: linear-gradient(90deg, #ff3c5a, #ff7a8a); }
+    .fill-warn { background: linear-gradient(90deg, #ffa43d, #ffc86a); }
+    .fill-ok   { background: linear-gradient(90deg, #3dd9f5, #7be5fb); }
+
+    .diag-fps {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      background: rgba(0,0,0,0.22);
+      border: 1px solid var(--border);
+    }
+    .fps-num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cyan);
+      text-shadow: 0 0 24px rgba(61,217,245,0.4);
+    }
+    .fps-label { font-size: 12px; color: var(--muted); font-weight: 700; padding-bottom: 6px; }
+    .fps-arrow {
+      margin-left: auto;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: #5ae08a;
+      display: flex; align-items: center; gap: 4px;
+      padding-bottom: 6px;
+    }
+
+    .diag-checks { display: grid; gap: 10px; }
+    .dcheck {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; color: #c8d6f0;
+      font-family: var(--font-display);
+    }
+    .dcheck .icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      display: grid; place-items: center;
+      font-size: 12px;
       flex: 0 0 auto;
     }
+    .dcheck .icon.ok  { background: rgba(37,211,102,0.14); color: #5ae08a; border: 1px solid rgba(37,211,102,0.20); }
+    .dcheck .icon.bad { background: rgba(255,60,90,0.12); color: #ff7a8a; border: 1px solid rgba(255,60,90,0.18); }
 
-    /* TRUST BAR */
-    .trust-bar {
-      padding: 24px 0 0;
-    }
-
-    .trust-grid {
+    /* ─── TRUST BAR ───────────────────────────────────────── */
+    .trust-bar { padding: 20px 0 0; }
+    .trust-items {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+      gap: 14px;
     }
-
     .trust-item {
-      padding: 18px 20px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--dim);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: #c0cfe8;
       text-align: center;
-      color: #dce5f6;
-      font-weight: 800;
+      letter-spacing: 0.02em;
     }
 
-    /* SERVICES */
-    .services-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .service-card {
-      padding: 26px;
-      position: relative;
-    }
-
-    .icon-box {
-      width: 54px;
-      height: 54px;
-      border-radius: 16px;
+    /* ─── PROBLEM SECTION ─────────────────────────────────── */
+    .problem-grid {
       display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(34,211,238,0.08));
-      border: 1px solid rgba(56,189,248,0.18);
-      color: #95e8ff;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .problem-copy { padding-right: 16px; }
+    .problem-copy p { color: var(--muted); font-size: 17px; line-height: 1.75; margin-bottom: 16px; }
+    .problem-copy strong { color: var(--text); }
+
+    .pain-list { display: grid; gap: 12px; }
+    .pain-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(255,60,90,0.05);
+      border: 1px solid rgba(255,60,90,0.12);
+      font-size: 15px;
+      font-weight: 700;
+      color: #e2e8f8;
+      transition: border-color 0.25s, background 0.25s;
+    }
+    .pain-item:hover { border-color: rgba(255,60,90,0.25); background: rgba(255,60,90,0.08); }
+    .pain-icon { font-size: 20px; flex: 0 0 auto; margin-top: 2px; }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .svc-card { padding: 26px; }
+    .svc-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: grid; place-items: center;
       font-size: 24px;
-    }
-
-    .service-card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      color: var(--muted);
       margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(61,217,245,0.14), rgba(61,217,245,0.04));
+      border: 1px solid rgba(61,217,245,0.16);
     }
-
-    .service-card .tag {
-      margin-top: auto;
-    }
-
-    /* ABOUT / BENEFITS */
-    .benefits-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .benefit-card {
-      padding: 24px;
-      text-align: center;
-    }
-
-    .benefit-card .big-icon {
-      font-size: 38px;
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .benefit-card h3 {
+    .svc-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
       margin-bottom: 10px;
-      font-size: 20px;
+    }
+    .svc-card p { color: var(--muted); font-size: 15px; margin-bottom: 16px; }
+    .svc-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--dim);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 700;
+      color: #b0c2e0;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
     }
 
-    .benefit-card p {
-      color: var(--muted);
-    }
+    /* ─── GALLERY PARALLAX ────────────────────────────────── */
+    #galeria { overflow: hidden; }
+    .gallery-intro { margin-bottom: 40px; }
 
-    /* GALLERY */
-    .gallery-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .gallery-item {
-      position: relative;
+    .gallery-stage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      height: 540px;
       overflow: hidden;
+      border-radius: var(--radius);
+    }
+    .gallery-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      will-change: transform;
+      transition: transform 0.1s linear;
+    }
+    .gallery-col.col-down { transform: translateY(-40px); }
+    .gallery-col.col-up   { transform: translateY(0); }
+    .gallery-col.col-mid  { transform: translateY(-20px); }
+
+    .gitem {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      flex: 0 0 auto;
       min-height: 280px;
     }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
+    .gitem img {
+      width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.6s ease;
+      transition: transform 0.7s ease;
     }
-
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .gallery-overlay {
+    .gitem:hover img { transform: scale(1.06); }
+    .gitem-overlay {
       position: absolute;
       inset: auto 0 0 0;
-      padding: 18px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.72));
+      padding: 18px 16px;
+      background: linear-gradient(to top, rgba(4,8,18,0.88) 0%, transparent 100%);
     }
-
-    .gallery-overlay strong {
+    .gitem-overlay strong {
       display: block;
-      font-size: 18px;
-      margin-bottom: 4px;
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 700;
+      margin-bottom: 3px;
     }
+    .gitem-overlay span { color: #9bb3cc; font-size: 13px; }
 
-    .gallery-overlay span {
-      color: #c6d2ea;
-      font-size: 14px;
-    }
-
-    /* PROCESS */
+    /* ─── PROCESS ─────────────────────────────────────────── */
     .process-grid {
       grid-template-columns: repeat(4, 1fr);
       position: relative;
     }
-
-    .process-card {
-      padding: 24px;
-      position: relative;
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 38px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-hi), transparent);
+      z-index: 0;
     }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
+    .proc-card { padding: 24px; position: relative; z-index: 1; }
+    .proc-num {
+      width: 44px; height: 44px;
+      display: grid; place-items: center;
       border-radius: 12px;
-      background: rgba(56,189,248,0.10);
-      color: #9be7ff;
-      font-weight: 900;
-      border: 1px solid rgba(56,189,248,0.18);
-      margin-bottom: 14px;
-    }
-
-    .process-card h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .process-card p {
-      color: var(--muted);
-    }
-
-    /* STATS */
-    .stats-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat-card {
-      padding: 26px;
-      text-align: center;
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: clamp(34px, 4vw, 46px);
-      line-height: 1;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    .stat-card span {
-      color: var(--muted);
+      background: rgba(61,217,245,0.10);
+      border: 1px solid rgba(61,217,245,0.20);
+      color: var(--cyan);
+      font-family: var(--font-display);
       font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 16px;
     }
-
-    /* RESULTS */
-    .results-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .proc-card h3 {
+      font-family: var(--font-display);
+      font-size: 21px; font-weight: 700;
+      margin-bottom: 8px;
     }
+    .proc-card p { color: var(--muted); font-size: 14px; }
 
-    .result-card {
-      padding: 26px;
-    }
-
-    .result-card h3 {
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .result-card p {
-      color: var(--muted);
-    }
-
-    /* PRICING */
-    .pricing-grid {
+    /* ─── PLANS ───────────────────────────────────────────── */
+    .plans-grid {
       grid-template-columns: repeat(3, 1fr);
       align-items: stretch;
     }
-
-    .price-card {
-      padding: 30px;
+    .plan-card {
+      padding: 28px;
       position: relative;
     }
-
-    .price-card.featured {
-      border-color: rgba(56,189,248,0.40);
+    .plan-card.featured {
+      border-color: var(--border-hi);
       transform: scale(1.03);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.46);
+      background: linear-gradient(180deg, rgba(16,26,48,0.95), rgba(10,16,32,0.98));
+      box-shadow: 0 32px 80px rgba(0,0,0,0.60), 0 0 0 1px rgba(61,217,245,0.20);
     }
-
-    .price-badge {
+    .plan-badge {
       position: absolute;
-      top: 18px;
-      right: 18px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-      color: #03111d;
-      font-size: 12px;
-      font-weight: 900;
-      padding: 8px 10px;
-      border-radius: 999px;
+      top: 16px; right: 16px;
+      background: linear-gradient(90deg, #22cfe8, #3dd9f5);
+      color: #04101a;
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 999px;
     }
-
-    .price-name {
-      font-size: 26px;
-      font-weight: 900;
-      margin-bottom: 6px;
+    .plan-name {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 700;
+      margin-bottom: 4px;
     }
-
-    .price-value {
-      font-size: 42px;
-      font-weight: 900;
-      margin-bottom: 16px;
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 38px; font-weight: 700;
       letter-spacing: -0.03em;
+      margin-bottom: 14px;
+      color: #fff;
     }
-
-    .price-value small {
-      font-size: 17px;
-      color: var(--muted);
-      font-weight: 700;
+    .plan-price small { font-size: 15px; color: var(--muted); font-weight: 600; }
+    .plan-desc { color: var(--muted); font-size: 14px; margin-bottom: 18px; line-height: 1.6; }
+    .plan-items { display: grid; gap: 10px; margin-bottom: 22px; }
+    .plan-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; font-weight: 700; color: #d8e4f8;
+      font-family: var(--font-display);
     }
-
-    .price-desc {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .price-list {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .price-list li {
-      display: flex;
-      gap: 10px;
-      color: #e2e9f7;
-      font-weight: 700;
-    }
-
-    /* TESTIMONIALS */
-    .testimonials-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .testimonial-card {
-      padding: 26px;
-    }
-
-    .stars {
-      margin-bottom: 16px;
-      color: #ffd76a;
-      font-size: 18px;
-      letter-spacing: 1px;
-    }
-
-    .testimonial-card p {
-      color: #e7eefc;
-      margin-bottom: 18px;
-    }
-
-    .testimonial-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .avatar {
-      width: 46px;
-      height: 46px;
+    .check-circle {
+      width: 20px; height: 20px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(56,189,248,0.14);
-      border: 1px solid rgba(56,189,248,0.20);
-      color: #9de9ff;
-      font-weight: 900;
+      display: grid; place-items: center;
+      background: rgba(61,217,245,0.14);
+      color: var(--cyan);
+      font-size: 11px;
+      flex: 0 0 auto;
+      margin-top: 1px;
+      border: 1px solid rgba(61,217,245,0.18);
     }
 
-    .testimonial-meta strong {
+    /* ─── RESULTS ─────────────────────────────────────────── */
+    .results-grid { grid-template-columns: repeat(3, 1fr); }
+    .result-card { padding: 26px; }
+    .result-card h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .result-card p { color: var(--muted); font-size: 15px; }
+
+    /* ─── STATS ───────────────────────────────────────────── */
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .stat-card { padding: 24px; text-align: center; }
+    .stat-card strong {
       display: block;
+      font-family: var(--font-display);
+      font-size: clamp(38px, 4vw, 50px);
+      font-weight: 700;
+      color: var(--cyan);
+      text-shadow: 0 0 32px rgba(61,217,245,0.30);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-card span { color: var(--muted); font-size: 14px; font-weight: 700; }
+
+    /* ─── TESTIMONIALS ────────────────────────────────────── */
+    .testi-grid { grid-template-columns: repeat(3, 1fr); }
+    .testi-card { padding: 26px; }
+    .stars { color: var(--gold); font-size: 17px; letter-spacing: 1px; margin-bottom: 14px; }
+    .testi-quote { color: #dce8fa; font-size: 15px; margin-bottom: 18px; line-height: 1.7; font-style: italic; }
+    .testi-person { display: flex; align-items: center; gap: 12px; }
+    .avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, rgba(61,217,245,0.18), rgba(61,217,245,0.05));
+      border: 1px solid rgba(61,217,245,0.20);
+      color: var(--cyan-2);
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 18px;
+    }
+    .testi-name { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+    .testi-role { color: var(--muted); font-size: 13px; }
+
+    /* ─── FAQ ─────────────────────────────────────────────── */
+    .faq-wrap { width: min(100%, 860px); margin: 0 auto; display: grid; gap: 12px; }
+    .faq-item { overflow: hidden; }
+    .faq-btn {
+      width: 100%;
+      background: transparent; color: var(--text); border: none;
+      padding: 20px 22px;
+      text-align: left;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 700; font-size: 17px;
+    }
+    .faq-plus {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      display: grid; place-items: center;
+      background: var(--dim);
+      border: 1px solid var(--border);
+      flex: 0 0 auto;
+      color: var(--cyan);
+      font-size: 20px;
+      transition: transform 0.25s ease, background 0.25s;
+    }
+    .faq-item.open .faq-plus { transform: rotate(45deg); background: var(--cyan-glow); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-body p { color: var(--muted); padding: 0 22px 20px; font-size: 15px; }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .contact-info { padding: 28px; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+    .contact-info > p { color: var(--muted); margin-bottom: 22px; font-size: 15px; }
+    .contact-rows { display: grid; gap: 14px; margin-bottom: 24px; }
+    .crow {
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .crow-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: grid; place-items: center;
+      font-size: 18px;
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, rgba(61,217,245,0.12), rgba(61,217,245,0.04));
+      border: 1px solid rgba(61,217,245,0.14);
+    }
+    .crow-text strong { display: block; font-size: 15px; font-weight: 700; }
+    .crow-text span { color: var(--muted); font-size: 14px; }
+    .contact-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .contact-form { padding: 28px; }
+    .contact-form h3 { font-family: var(--font-display); font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+    .contact-form > p { color: var(--muted); margin-bottom: 20px; font-size: 15px; }
+    .form-grid { display: grid; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: grid; gap: 6px; }
+    .field label { font-size: 13px; font-weight: 700; color: #9db3d4; font-family: var(--font-display); letter-spacing: 0.04em; text-transform: uppercase; }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      padding: 13px 15px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
       font-size: 15px;
     }
-
-    .testimonial-meta span {
-      color: var(--muted);
-      font-size: 13px;
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: rgba(61,217,245,0.35);
+      background: rgba(61,217,245,0.04);
     }
+    .field select option { background: #0d1628; }
+    .form-note { color: var(--muted); font-size: 12px; margin-top: 8px; }
 
-    /* FAQ */
-    .faq-wrap {
-      width: min(100%, 900px);
-      margin: 0 auto;
-      display: grid;
-      gap: 16px;
-    }
-
-    .faq-item {
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: transparent;
-      color: var(--text);
-      border: none;
-      padding: 22px 24px;
-      text-align: left;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 17px;
-    }
-
-    .faq-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      flex: 0 0 auto;
-      transition: transform 0.25s ease;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .faq-answer p {
-      color: var(--muted);
-      padding: 0 24px 22px;
-    }
-
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
-
-    /* CONTACT */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .contact-card,
-    .contact-form-wrap {
-      padding: 28px;
-    }
-
-    .contact-card h3,
-    .contact-form-wrap h3 {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .contact-card > p,
-    .contact-form-wrap > p {
-      color: var(--muted);
-      margin-bottom: 22px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .contact-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: #e2eaf8;
-    }
-
-    .contact-list .icon-box {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      margin-bottom: 0;
-      font-size: 18px;
-      flex: 0 0 auto;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .fake-form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .fake-form .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field label {
-      font-size: 14px;
-      color: #dbe4f5;
-      font-weight: 700;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      padding: 14px 16px;
-      outline: none;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: rgba(56,189,248,0.40);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .form-note {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* CTA FINAL */
-    .cta-final {
+    /* ─── CTA BANNER ──────────────────────────────────────── */
+    .cta-banner {
       padding: 36px;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 22px;
+      gap: 20px;
       align-items: center;
+      background: linear-gradient(110deg, rgba(61,217,245,0.06) 0%, rgba(61,217,245,0.02) 50%, rgba(10,20,40,0.4) 100%);
+      border-color: var(--border-hi);
     }
-
-    .cta-final h3 {
-      font-size: clamp(28px, 4vw, 40px);
+    .cta-banner h3 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 700;
       line-height: 1.05;
       margin-bottom: 10px;
     }
+    .cta-banner p { color: var(--muted); max-width: 620px; font-size: 15px; }
+    .cta-btns { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; }
 
-    .cta-final p {
-      color: var(--muted);
-      max-width: 700px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 12px;
-    }
-
-    /* FOOTER */
-    .footer {
-      padding: 28px 0 50px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .footer-wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .footer small {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    .footer { padding: 24px 0 48px; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer small { color: var(--muted); font-size: 14px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
     .footer-links a {
-      color: #dbe4f5;
-      font-weight: 700;
-      font-size: 14px;
+      color: #8fa3c8;
+      font-size: 14px; font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
     }
+    .footer-links a:hover { color: var(--cyan); }
 
-    /* FLOATS */
-    .whatsapp-float,
-    .to-top {
-      position: fixed;
-      right: 18px;
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
+    /* ─── FLOATS ──────────────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 18px; right: 18px;
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: grid; place-items: center;
+      background: #25d366;
+      color: #fff; font-size: 26px;
+      box-shadow: 0 12px 30px rgba(37,211,102,0.28);
       z-index: 1100;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.28);
-      transition: transform 0.25s ease, opacity 0.25s ease;
+      transition: transform 0.25s, box-shadow 0.25s;
     }
+    .wa-float:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(37,211,102,0.42); }
 
-    .whatsapp-float:hover,
-    .to-top:hover {
-      transform: translateY(-4px);
+    .top-btn {
+      position: fixed; bottom: 84px; right: 18px;
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(110deg, #22cfe8, #3dd9f5);
+      color: #04101a;
+      border: none; cursor: pointer; font-size: 18px;
+      display: grid; place-items: center;
+      z-index: 1100;
+      box-shadow: 0 8px 24px rgba(61,217,245,0.22);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
     }
+    .top-btn.show { opacity: 1; pointer-events: auto; }
+    .top-btn:hover { transform: translateY(-3px); }
 
-    .whatsapp-float {
-      bottom: 18px;
-      background: var(--success);
-      color: white;
-      font-size: 28px;
-    }
-
-    .to-top {
-      bottom: 86px;
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-      color: #03111d;
-      font-size: 24px;
-      border: none;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .to-top.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* REVEAL */
+    /* ─── REVEAL ──────────────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(34px);
+      transform: translateY(28px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .reveal.vis { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .meter-fill { transition: none; }
     }
 
-    /* RESPONSIVE */
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 1100px) {
-      .hero-grid,
-      .cta-final,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid,
-      .gallery-grid,
-      .process-grid,
-      .stats-grid,
-      .benefits-grid,
-      .results-grid,
-      .pricing-grid,
-      .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cta-buttons {
-        justify-content: flex-start;
-      }
+      .hero-grid, .problem-grid, .cta-banner, .contact-grid { grid-template-columns: 1fr; }
+      .cta-btns { justify-content: flex-start; }
+      .services-grid, .plans-grid, .stats-grid, .process-grid, .testi-grid, .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-items { grid-template-columns: repeat(2, 1fr); }
+      .gallery-stage { height: 440px; }
+      .plan-card.featured { transform: none; }
     }
-
     @media (max-width: 860px) {
-      .menu-toggle {
-        display: inline-grid;
-        place-items: center;
-      }
-
-      .nav-links,
-      .nav-actions .nav-cta {
-        display: none;
-      }
-
-      .mobile-menu {
-        display: grid;
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .fake-form .row {
-        grid-template-columns: 1fr;
-      }
+      .menu-btn { display: grid; }
+      .nav-links, .nav-cta { display: none; }
+      .mobile-menu { display: grid; }
+      .gallery-stage { grid-template-columns: 1fr 1fr; height: 360px; }
+      .gallery-col:nth-child(3) { display: none; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid::before { display: none; }
     }
-
-    @media (max-width: 680px) {
-      .section {
-        padding: 76px 0;
-      }
-
-      .services-grid,
-      .gallery-grid,
-      .process-grid,
-      .stats-grid,
-      .benefits-grid,
-      .results-grid,
-      .pricing-grid,
-      .testimonials-grid,
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy p,
-      .section-subtitle {
-        font-size: 16px;
-      }
-
-      .brand {
-        font-size: 22px;
-      }
-
-      .price-card.featured {
-        transform: none;
-      }
-
-      .whatsapp-float,
-      .to-top {
-        width: 54px;
-        height: 54px;
-        border-radius: 16px;
-      }
-    }
-
-    /* MOBILE MENU PANEL */
-    .mobile-menu {
-      display: none;
-      padding-bottom: 14px;
-    }
-
-    .mobile-panel {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(9, 13, 24, 0.96);
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .mobile-panel nav {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .mobile-panel nav a {
-      padding: 14px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.03);
-      font-weight: 800;
-      color: #e4ecfb;
-    }
-
-    .mobile-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .hidden {
-      display: none !important;
+    @media (max-width: 640px) {
+      .section { padding: 72px 0; }
+      .services-grid, .plans-grid, .stats-grid, .process-grid, .testi-grid, .results-grid, .trust-items { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .gallery-stage { height: 280px; }
+      .hero-h1 { font-size: 38px; }
     }
   </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#inicio" class="brand">
-        <span class="brand-logo">⚡</span>
-        <span>SilvioTech</span>
-      </a>
+<!-- ╔══ NAV ══╗ -->
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="#inicio" class="brand">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">SilvioTech</span>
+    </a>
 
-      <nav class="nav-links">
+    <nav class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galería</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#precios">Precios</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="btn btn-primary nav-cta" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" rel="noopener">Escribirme</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú"><span></span></button>
+    </div>
+  </div>
+
+  <div class="wrap mobile-menu hidden" id="mobileMenu">
+    <div class="mobile-panel">
+      <nav>
         <a href="#servicios">Servicios</a>
-        <a href="#beneficios">Beneficios</a>
         <a href="#galeria">Galería</a>
         <a href="#proceso">Proceso</a>
         <a href="#precios">Precios</a>
         <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-primary nav-cta" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank">WhatsApp</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-          <span></span>
-        </button>
+      <div class="mobile-actions">
+        <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+        <a class="btn btn-ghost" href="#precios">Ver planes</a>
       </div>
     </div>
+  </div>
+</header>
 
-    <div class="container mobile-menu hidden" id="mobileMenu">
-      <div class="mobile-panel">
-        <nav>
-          <a href="#servicios">Servicios</a>
-          <a href="#beneficios">Beneficios</a>
-          <a href="#galeria">Galería</a>
-          <a href="#proceso">Proceso</a>
-          <a href="#precios">Precios</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contacto">Contacto</a>
-        </nav>
-        <div class="mobile-actions">
-          <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank">Escribirme</a>
-          <a class="btn btn-secondary" href="#precios">Ver planes</a>
+<main id="inicio">
+
+  <!-- ╔══ HERO ══╗ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <!-- left -->
+      <div class="reveal">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Servicio en Paraguay · Atención por WhatsApp</div>
+        <h1 class="hero-h1">Tu PC puede rendir<br><span class="accent">mucho más</span><br>de lo que rinde.</h1>
+        <p class="hero-lead">Optimización gamer, soporte técnico y configuración real para PCs y notebooks. Sin promesas falsas, con explicación clara del trabajo hecho.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" rel="noopener">
+            💬 Quiero mi optimización
+          </a>
+          <a class="btn btn-ghost" href="#precios">Ver planes →</a>
         </div>
+
+        <div class="hero-trust">
+          <span class="trust-pill"><span class="dot"></span>Diagnóstico claro</span>
+          <span class="trust-pill"><span class="dot"></span>Atención rápida</span>
+          <span class="trust-pill"><span class="dot"></span>Sin promesas falsas</span>
+          <span class="trust-pill"><span class="dot"></span>Te explico qué se hizo</span>
+        </div>
+
+        <p class="hero-note">⚠️ Cupos limitados por día para mantener atención personalizada.</p>
       </div>
-    </div>
-  </header>
 
-  <main id="inicio">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <span class="badge">Optimización gamer • soporte técnico • Windows</span>
-          <h1>Aumenta los FPS y haz que tu PC se sienta mucho más rápida</h1>
-          <p>
-            Servicio enfocado en gaming y rendimiento real: optimización del sistema,
-            instalación de Windows, limpieza, soporte técnico y mejoras para PCs y notebooks.
-          </p>
+      <!-- right: diagnostic panel -->
+      <aside class="card diag-panel shimmer reveal">
+        <div class="diag-header">
+          <span class="diag-title">// Diagnóstico del sistema</span>
+          <span class="diag-badge">● Disponible</span>
+        </div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank">Quiero mi optimización</a>
-            <a class="btn btn-secondary" href="#precios">Ver planes</a>
+        <div class="diag-meters">
+          <div class="meter-row">
+            <div class="meter-top">
+              <span class="meter-label">CPU Load</span>
+              <span class="meter-val" id="cpuVal">94%</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-bad" id="cpuFill" style="width:0"></div></div>
           </div>
-
-          <p class="hero-note">⚠️ Cupos limitados por día para mantener atención rápida y personalizada.</p>
-
-          <div class="hero-tags">
-            <span class="tag">Fortnite</span>
-            <span class="tag">Windows 10/11</span>
-            <span class="tag">PC Gamer</span>
-            <span class="tag">Notebook</span>
-            <span class="tag">Soporte TI</span>
+          <div class="meter-row">
+            <div class="meter-top">
+              <span class="meter-label">RAM Usada</span>
+              <span class="meter-val" id="ramVal">87%</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-warn" id="ramFill" style="width:0"></div></div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-top">
+              <span class="meter-label">Temp. GPU</span>
+              <span class="meter-val" id="tmpVal">91 °C</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-bad" id="tmpFill" style="width:0"></div></div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-top">
+              <span class="meter-label">Optimización</span>
+              <span class="meter-val" id="optVal">12%</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-warn" id="optFill" style="width:0"></div></div>
           </div>
         </div>
 
-        <aside class="hero-panel card glow reveal">
-          <div class="hero-panel-top">
-            <div>
-              <strong style="font-size: 22px;">Servicio directo y claro</strong>
-              <p style="color: var(--muted); margin-top: 4px;">Ideal para PCs lentas, gaming y errores de sistema.</p>
-            </div>
-            <span class="panel-chip">Disponible</span>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat-mini">
-              <strong>+FPS</strong>
-              <span>en setups optimizados</span>
-            </div>
-            <div class="stat-mini">
-              <strong>↓ Lag</strong>
-              <span>menos carga innecesaria</span>
-            </div>
-            <div class="stat-mini">
-              <strong>Rápido</strong>
-              <span>atención por WhatsApp</span>
-            </div>
-          </div>
-
-          <ul class="checklist">
-            <li><span class="check">✓</span> PC lenta o con tirones</li>
-            <li><span class="check">✓</span> Bajos FPS en juegos competitivos</li>
-            <li><span class="check">✓</span> Windows con errores o saturado</li>
-            <li><span class="check">✓</span> Drivers, programas y configuración</li>
-            <li><span class="check">✓</span> Instalación limpia y mantenimiento</li>
-          </ul>
-        </aside>
-      </div>
-
-      <div class="container trust-bar">
-        <div class="trust-grid">
-          <div class="trust-item reveal">Optimización enfocada a rendimiento</div>
-          <div class="trust-item reveal">Atención rápida por WhatsApp</div>
-          <div class="trust-item reveal">Ideal para gaming y oficina</div>
-          <div class="trust-item reveal">Explicación clara del trabajo</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="servicios" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Servicios</h2>
-        <p class="section-subtitle reveal">
-          Soluciones pensadas para mejorar rendimiento, estabilidad y experiencia de uso,
-          tanto en gaming como en trabajo y estudio.
-        </p>
-
-        <div class="grid services-grid">
-          <article class="card service-card glow reveal">
-            <div class="icon-box">🎮</div>
-            <h3>Optimización Gamer</h3>
-            <p>Configuración enfocada a reducir procesos innecesarios y mejorar fluidez en juegos competitivos.</p>
-            <span class="tag">Más rendimiento</span>
-          </article>
-
-          <article class="card service-card glow reveal">
-            <div class="icon-box">🛠️</div>
-            <h3>Soporte Técnico</h3>
-            <p>Solución de errores, drivers, programas, periféricos, impresoras y fallos generales del sistema.</p>
-            <span class="tag">Soporte real</span>
-          </article>
-
-          <article class="card service-card glow reveal">
-            <div class="icon-box">🧼</div>
-            <h3>Limpieza y Mantenimiento</h3>
-            <p>Revisión general, consejos de temperatura y orden del sistema para mejor estabilidad.</p>
-            <span class="tag">Más vida útil</span>
-          </article>
-
-          <article class="card service-card glow reveal">
-            <div class="icon-box">💻</div>
-            <h3>Instalación de Windows</h3>
-            <p>Instalación limpia, configuración inicial, ajustes base y puesta a punto del equipo.</p>
-            <span class="tag">Sistema limpio</span>
-          </article>
-
-          <article class="card service-card glow reveal">
-            <div class="icon-box">📦</div>
-            <h3>Drivers y Programas</h3>
-            <p>Instalación y configuración de software esencial, navegadores, utilidades y herramientas necesarias.</p>
-            <span class="tag">Listo para usar</span>
-          </article>
-
-          <article class="card service-card glow reveal">
-            <div class="icon-box">🧠</div>
-            <h3>Asesoría de Compra</h3>
-            <p>Ayuda para elegir componentes, periféricos, notebooks o mejoras según tu presupuesto.</p>
-            <span class="tag">Compra inteligente</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="beneficios" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">¿Por qué elegir este servicio?</h2>
-        <p class="section-subtitle reveal">
-          No se trata solo de instalar cosas. Se trata de entender qué está frenando tu equipo
-          y dejarlo mejor configurado para tu caso real.
-        </p>
-
-        <div class="grid benefits-grid">
-          <article class="card benefit-card glow reveal">
-            <span class="big-icon">⚡</span>
-            <h3>Más rendimiento</h3>
-            <p>Configuración orientada a que tu PC responda mejor y se sienta más fluida.</p>
-          </article>
-
-          <article class="card benefit-card glow reveal">
-            <span class="big-icon">🎯</span>
-            <h3>Enfoque gamer</h3>
-            <p>Especial atención a estabilidad, FPS y experiencia en juegos competitivos.</p>
-          </article>
-
-          <article class="card benefit-card glow reveal">
-            <span class="big-icon">💬</span>
-            <h3>Atención clara</h3>
-            <p>Te explico qué se hizo, por qué y qué conviene mejorar a futuro.</p>
-          </article>
-
-          <article class="card benefit-card glow reveal">
-            <span class="big-icon">🔒</span>
-            <h3>Trabajo ordenado</h3>
-            <p>Proceso más limpio, organizado y orientado a dejar el equipo listo para usar.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="galeria" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Ambiente Gamer</h2>
-        <p class="section-subtitle reveal">
-          Una sección visual premium para reforzar la identidad gamer del servicio.
-        </p>
-
-        <div class="grid gallery-grid">
-          <article class="card gallery-item reveal">
-            <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=900&q=80" alt="Setup gamer RGB">
-            <div class="gallery-overlay">
-              <strong>Setup RGB</strong>
-              <span>Ambiente competitivo y visual premium</span>
-            </div>
-          </article>
-
-          <article class="card gallery-item reveal">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80" alt="Pantalla gamer">
-            <div class="gallery-overlay">
-              <strong>Gaming competitivo</strong>
-              <span>Fluidez, respuesta y optimización</span>
-            </div>
-          </article>
-
-          <article class="card gallery-item reveal">
-            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80" alt="Teclado gamer RGB">
-            <div class="gallery-overlay">
-              <strong>Periféricos</strong>
-              <span>Setup ordenado y experiencia completa</span>
-            </div>
-          </article>
-
-          <article class="card gallery-item reveal">
-            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=900&q=80" alt="PC gamer de escritorio">
-            <div class="gallery-overlay">
-              <strong>PC Gamer</strong>
-              <span>Rendimiento, limpieza y soporte</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="proceso" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Cómo trabajo</h2>
-        <p class="section-subtitle reveal">
-          Un proceso simple, claro y fácil de entender para que el cliente sepa qué esperar.
-        </p>
-
-        <div class="grid process-grid">
-          <article class="card process-card glow reveal">
-            <div class="step-number">1</div>
-            <h3>Consulta</h3>
-            <p>Me escribes por WhatsApp y me cuentas qué problema tienes o qué quieres mejorar.</p>
-          </article>
-
-          <article class="card process-card glow reveal">
-  <div class="step-number">2</div>
-  <h3>Diagnóstico</h3>
-  <p>Analizo el estado de tu PC, detecto errores, procesos innecesarios, problemas de temperatura y puntos que están bajando el rendimiento.</p>
-</article>
-
-<article class="card process-card glow reveal">
-  <div class="step-number">3</div>
-  <h3>Optimización</h3>
-  <p>Aplico configuraciones, limpieza del sistema, ajustes de rendimiento y mejoras específicas para tu equipo.</p>
-</article>
-
-<article class="card process-card glow reveal">
-  <div class="step-number">4</div>
-  <h3>Resultado</h3>
-  <p>Te entrego una PC más rápida, más estable y lista para jugar, trabajar o estudiar mucho mejor.</p>
-</article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Resultados esperados</h2>
-        <p class="section-subtitle reveal">
-          El objetivo es que tu equipo se sienta más limpio, más estable y mejor preparado para rendir.
-        </p>
-
-        <div class="grid results-grid">
-          <article class="card result-card glow reveal">
-            <h3>Más fluidez</h3>
-            <p>Mejor respuesta general del sistema, menor sensación de pesadez y una experiencia más cómoda.</p>
-          </article>
-
-          <article class="card result-card glow reveal">
-            <h3>Menos tirones</h3>
-            <p>Reducción de carga innecesaria y ajustes pensados para mejorar estabilidad en uso diario y gaming.</p>
-          </article>
-
-          <article class="card result-card glow reveal">
-            <h3>Mejor organización</h3>
-            <p>Sistema más limpio, programas mejor instalados y configuración más ordenada para seguir usando la PC sin caos.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Números que transmiten confianza</h2>
-        <p class="section-subtitle reveal">
-          Esta parte ayuda a que la página se vea más seria y profesional.
-        </p>
-
-        <div class="grid stats-grid">
-          <article class="card stat-card glow reveal">
-            <strong data-count="120">0</strong>
-            <span>Equipos optimizados</span>
-          </article>
-
-          <article class="card stat-card glow reveal">
-            <strong data-count="95">0</strong>
-            <span>Clientes satisfechos</span>
-          </article>
-
-          <article class="card stat-card glow reveal">
-            <strong data-count="24">0</strong>
-            <span>Atención por WhatsApp</span>
-          </article>
-
-          <article class="card stat-card glow reveal">
-            <strong data-count="100">0</strong>
-            <span>Enfoque al rendimiento</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="precios" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Planes</h2>
-        <p class="section-subtitle reveal">
-          Opciones pensadas para distintos niveles de necesidad, desde una mejora básica hasta una puesta a punto más completa.
-        </p>
-
-        <div class="grid pricing-grid">
-          <article class="card price-card glow reveal">
-            <div class="price-name">Básico</div>
-            <div class="price-value">Gs. 80.000</div>
-            <p class="price-desc">Ideal para revisión rápida y mejora inicial del sistema.</p>
-
-            <ul class="price-list">
-              <li><span class="check">✓</span> Revisión general</li>
-              <li><span class="check">✓</span> Limpieza de archivos innecesarios</li>
-              <li><span class="check">✓</span> Optimización básica</li>
-              <li><span class="check">✓</span> Recomendaciones simples</li>
-            </ul>
-
-            <a class="btn btn-secondary" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20Básico" target="_blank">Elegir plan</a>
-          </article>
-
-          <article class="card price-card featured glow reveal">
-            <span class="price-badge">Más elegido</span>
-            <div class="price-name">Gamer</div>
-            <div class="price-value">Gs. 150.000</div>
-            <p class="price-desc">La mejor opción para usuarios que quieren una mejora más seria en juegos y rendimiento.</p>
-
-            <ul class="price-list">
-              <li><span class="check">✓</span> Optimización para juegos</li>
-              <li><span class="check">✓</span> Ajustes de sistema</li>
-              <li><span class="check">✓</span> Mejora de estabilidad</li>
-              <li><span class="check">✓</span> Recomendaciones personalizadas</li>
-            </ul>
-
-            <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20Gamer" target="_blank">Elegir plan</a>
-          </article>
-
-          <article class="card price-card glow reveal">
-            <div class="price-name">Full</div>
-            <div class="price-value">Gs. 220.000</div>
-            <p class="price-desc">Para dejar el equipo mucho más completo, limpio y listo para uso intensivo.</p>
-
-            <ul class="price-list">
-              <li><span class="check">✓</span> Instalación de Windows</li>
-              <li><span class="check">✓</span> Drivers y programas</li>
-              <li><span class="check">✓</span> Optimización completa</li>
-              <li><span class="check">✓</span> Configuración final</li>
-            </ul>
-
-            <a class="btn btn-secondary" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20Full" target="_blank">Elegir plan</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Opiniones</h2>
-        <p class="section-subtitle reveal">
-          Los testimonios ayudan muchísimo a que la página genere confianza.
-        </p>
-
-        <div class="grid testimonials-grid">
-          <article class="card testimonial-card glow reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Mi PC se sentía muy pesada y después del servicio quedó mucho más rápida y ordenada."</p>
-            <div class="testimonial-meta">
-              <div class="avatar">A</div>
-              <div>
-                <strong>Andrés</strong>
-                <span>Cliente gamer</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card testimonial-card glow reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Muy claro al explicar, respondió rápido y dejó mi notebook lista para trabajar."</p>
-            <div class="testimonial-meta">
-              <div class="avatar">M</div>
-              <div>
-                <strong>María</strong>
-                <span>Usuario oficina</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card testimonial-card glow reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Se notó bastante la mejora. Menos tirones, mejor orden y todo funcionando mejor."</p>
-            <div class="testimonial-meta">
-              <div class="avatar">L</div>
-              <div>
-                <strong>Luis</strong>
-                <span>Cliente particular</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Preguntas frecuentes</h2>
-        <p class="section-subtitle reveal">
-          Esto hace que la página se vea más completa y responde dudas antes de que el cliente pregunte.
-        </p>
-
-        <div class="faq-wrap">
-          <article class="card faq-item glow reveal">
-            <button class="faq-question" type="button">
-              <span>¿Qué tipo de equipos optimizas?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>PCs gamer, notebooks y equipos de uso diario que necesiten mejor rendimiento, limpieza del sistema o instalación de Windows.</p>
-            </div>
-          </article>
-
-          <article class="card faq-item glow reveal">
-            <button class="faq-question" type="button">
-              <span>¿También sirve para gaming?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Sí. Está muy enfocado a gaming, especialmente a mejorar fluidez, reducir procesos innecesarios y dejar el sistema más limpio.</p>
-            </div>
-          </article>
-
-          <article class="card faq-item glow reveal">
-            <button class="faq-question" type="button">
-              <span>¿Incluye instalación de programas?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Depende del plan. Los planes más completos incluyen instalación de drivers, programas y configuración general.</p>
-            </div>
-          </article>
-
-          <article class="card faq-item glow reveal">
-            <button class="faq-question" type="button">
-              <span>¿Cómo te contacto?</span>
-              <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-              <p>Puedes escribirme directamente por WhatsApp al 0972510615 o al correo silviopaniagua6@gmail.com.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="section">
-      <div class="container">
-        <h2 class="section-title reveal">Contacto</h2>
-        <p class="section-subtitle reveal">
-          Dale una salida rápida al cliente para que te escriba de una vez.
-        </p>
-
-        <div class="contact-grid">
-          <article class="card contact-card glow reveal">
-            <h3>Hablemos</h3>
-            <p>Si quieres optimizar tu PC, mejorar el rendimiento o consultar por soporte, escríbeme directo.</p>
-
-            <ul class="contact-list">
-              <li>
-                <span class="icon-box">📱</span>
-                <div>
-                  <strong>WhatsApp</strong>
-                  <div>0972510615</div>
-                </div>
-              </li>
-
-              <li>
-                <span class="icon-box">✉️</span>
-                <div>
-                  <strong>Email</strong>
-                  <div>silviopaniagua6@gmail.com</div>
-                </div>
-              </li>
-
-              <li>
-                <span class="icon-box">⚙️</span>
-                <div>
-                  <strong>Servicio</strong>
-                  <div>Optimización gamer y soporte técnico</div>
-                </div>
-              </li>
-            </ul>
-
-            <div class="contact-actions">
-              <a class="btn btn-whatsapp" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank">Escribirme por WhatsApp</a>
-              <a class="btn btn-secondary" href="mailto:silviopaniagua6@gmail.com">Enviar correo</a>
-            </div>
-          </article>
-
-          <article class="card contact-form-wrap glow reveal">
-            <h3>Solicitud rápida</h3>
-            <p>Este formulario es visual. Más adelante se puede conectar a un backend o WhatsApp.</p>
-
-            <form class="fake-form" id="quickForm">
-              <div class="row">
-                <div class="field">
-                  <label for="nombre">Nombre</label>
-                  <input id="nombre" type="text" placeholder="Tu nombre">
-                </div>
-
-                <div class="field">
-                  <label for="telefono">Teléfono</label>
-                  <input id="telefono" type="text" placeholder="Tu teléfono">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="tipo">Tipo de servicio</label>
-                <select id="tipo">
-                  <option>Optimización gamer</option>
-                  <option>Soporte técnico</option>
-                  <option>Instalación de Windows</option>
-                  <option>Limpieza y mantenimiento</option>
-                  <option>Asesoría</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" rows="5" placeholder="Cuéntame qué problema tiene tu PC o qué quieres mejorar"></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
-              <p class="form-note">Al enviar, se abrirá WhatsApp con el mensaje cargado automáticamente.</p>
-            </form>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="card cta-final glow reveal">
+        <div class="diag-fps">
           <div>
-            <h3>Tu PC puede rendir mucho mejor de lo que está rindiendo ahora</h3>
-            <p>Si quieres una mejora real en fluidez, orden y estabilidad, escríbeme y vemos cuál plan te conviene más.</p>
+            <div class="fps-num" id="fpsNum">42</div>
+            <div class="fps-label">FPS actuales (antes)</div>
           </div>
+          <div class="fps-arrow">↑ Con optimización</div>
+        </div>
 
-          <div class="cta-buttons">
-            <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20mejorar%20el%20rendimiento%20de%20mi%20PC" target="_blank">Quiero mejorar mi PC</a>
-            <a class="btn btn-secondary" href="#precios">Ver precios</a>
+        <div class="diag-checks">
+          <div class="dcheck"><span class="icon bad">✕</span>42 procesos innecesarios en inicio</div>
+          <div class="dcheck"><span class="icon bad">✕</span>Drivers desactualizados</div>
+          <div class="dcheck"><span class="icon bad">✕</span>Windows sin ajuste de rendimiento</div>
+          <div class="dcheck"><span class="icon ok">✓</span>Hardware: sin daño físico</div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap trust-bar">
+      <div class="trust-items">
+        <div class="trust-item reveal">Optimización orientada a rendimiento real</div>
+        <div class="trust-item reveal">Respuesta rápida por WhatsApp</div>
+        <div class="trust-item reveal">Gaming, oficina y uso diario</div>
+        <div class="trust-item reveal">Explicación clara del trabajo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══ PROBLEMA ══╗ -->
+  <section class="section">
+    <div class="wrap problem-grid">
+      <div class="problem-copy reveal">
+        <div class="sec-label">El problema</div>
+        <h2 class="sec-title">Tu PC prende, pero algo no está bien</h2>
+        <p>No hace falta que esté rota para rendirte menos de lo que debería. La mayoría de las PCs lentas tienen el mismo patrón: acumulación de procesos, configuraciones por defecto y Windows que nunca se tocó.</p>
+        <p>El resultado: tirones en juegos, arranque lento, sensación de pesadez y la frustración de no saber qué tocar sin romper algo.</p>
+        <a class="btn btn-primary" href="https://wa.me/595972510615?text=Hola%20quiero%20diagnosticar%20mi%20PC" target="_blank" rel="noopener">Quiero diagnosticar mi PC</a>
+      </div>
+
+      <div class="pain-list reveal">
+        <div class="pain-item"><span class="pain-icon">🐌</span><span>PC que prende lento y tarda en responder</span></div>
+        <div class="pain-item"><span class="pain-icon">📉</span><span>Juegos con tirones aunque el hardware es decente</span></div>
+        <div class="pain-item"><span class="pain-icon">🔥</span><span>Temperatura alta sin razón aparente</span></div>
+        <div class="pain-item"><span class="pain-icon">🪟</span><span>Windows lleno de procesos que no sirven para nada</span></div>
+        <div class="pain-item"><span class="pain-icon">❓</span><span>No sabés qué tocar sin romper algo</span></div>
+        <div class="pain-item"><span class="pain-icon">🔧</span><span>Drivers viejos, programas mal instalados, errores aleatorios</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══ SERVICIOS ══╗ -->
+  <section id="servicios" class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Lo que hago</div>
+        <h2 class="sec-title">Servicios</h2>
+        <p class="sec-sub">Soluciones concretas para mejorar rendimiento, estabilidad y experiencia de uso en gaming, trabajo y estudio.</p>
+      </div>
+      <div style="margin-top:40px"></div>
+
+      <div class="grid services-grid">
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">🎮</div>
+          <h3>Optimización Gamer</h3>
+          <p>Configuración profunda para reducir procesos innecesarios, mejorar estabilidad y hacer que los juegos se sientan más fluidos.</p>
+          <span class="svc-tag">Más fluidez en juegos</span>
+        </article>
+
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">🛠️</div>
+          <h3>Soporte Técnico</h3>
+          <p>Solución de errores del sistema, drivers, periféricos, impresoras, aplicaciones y fallos que no sabés cómo resolver.</p>
+          <span class="svc-tag">Solución real</span>
+        </article>
+
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">🧼</div>
+          <h3>Limpieza y Mantenimiento</h3>
+          <p>Revisión general del sistema, consejos de temperatura, orden del disco y mejoras para que el equipo se mantenga estable.</p>
+          <span class="svc-tag">Más vida útil</span>
+        </article>
+
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">💻</div>
+          <h3>Instalación de Windows</h3>
+          <p>Instalación limpia, configuración inicial, ajustes base y puesta a punto del equipo sin basura ni programas inútiles.</p>
+          <span class="svc-tag">Sistema limpio</span>
+        </article>
+
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">📦</div>
+          <h3>Drivers y Programas</h3>
+          <p>Instalación y configuración de software esencial, navegadores, utilidades y herramientas según tu uso real.</p>
+          <span class="svc-tag">Listo para usar</span>
+        </article>
+
+        <article class="card svc-card shimmer reveal">
+          <div class="svc-icon">🧠</div>
+          <h3>Asesoría de Compra</h3>
+          <p>Te ayudo a elegir componentes, periféricos o notebook según tu presupuesto real, sin que te vendan de más.</p>
+          <span class="svc-tag">Compra inteligente</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══ GALERÍA PARALLAX ══╗ -->
+  <section id="galeria" class="section">
+    <div class="wrap">
+      <div class="gallery-intro center reveal">
+        <div class="sec-label">Ambiente</div>
+        <h2 class="sec-title">Setups & Gaming</h2>
+        <p class="sec-sub">Optimización real para setups como estos. Tu equipo puede sentirse mucho mejor con la configuración correcta.</p>
+      </div>
+
+      <div class="gallery-stage" id="galleryStage" style="margin-top:36px">
+        <!-- col 1: moves UP on scroll -->
+        <div class="gallery-col col-up" id="gCol1">
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=800&q=75" alt="Setup gamer RGB" loading="lazy">
+            <div class="gitem-overlay"><strong>Setup RGB</strong><span>Ambiente competitivo</span></div>
+          </div>
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1593640408182-31c228d60b07?auto=format&fit=crop&w=800&q=75" alt="PC gamer interior" loading="lazy">
+            <div class="gitem-overlay"><strong>PC Gamer</strong><span>Rendimiento optimizado</span></div>
+          </div>
+        </div>
+
+        <!-- col 2: moves DOWN on scroll -->
+        <div class="gallery-col col-down" id="gCol2">
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=75" alt="Pantalla gaming competitivo" loading="lazy">
+            <div class="gitem-overlay"><strong>Gaming competitivo</strong><span>Fluidez y respuesta</span></div>
+          </div>
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1560419015-7c427e8ae5ba?auto=format&fit=crop&w=800&q=75" alt="Teclado gaming" loading="lazy">
+            <div class="gitem-overlay"><strong>Periféricos</strong><span>Setup completo</span></div>
+          </div>
+        </div>
+
+        <!-- col 3: neutral -->
+        <div class="gallery-col col-mid" id="gCol3">
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=800&q=75" alt="PC escritorio" loading="lazy">
+            <div class="gitem-overlay"><strong>Escritorio Gaming</strong><span>Soporte y limpieza</span></div>
+          </div>
+          <div class="gitem">
+            <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?auto=format&fit=crop&w=800&q=75" alt="Monitor gaming" loading="lazy">
+            <div class="gitem-overlay"><strong>Pantalla nítida</strong><span>Sin tirones</span></div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="footer">
-    <div class="container footer-wrap">
-      <small>© 2026 SilvioTech. Todos los derechos reservados.</small>
+  <!-- ╔══ PROCESO ══╗ -->
+  <section id="proceso" class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Cómo trabajo</div>
+        <h2 class="sec-title">Proceso simple y claro</h2>
+        <p class="sec-sub">Cuatro pasos para que tu PC quede mejor configurada y vos sepas exactamente qué se hizo.</p>
+      </div>
+      <div style="margin-top:44px"></div>
 
-      <div class="footer-links">
-        <a href="#servicios">Servicios</a>
-        <a href="#precios">Precios</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacto">Contacto</a>
+      <div class="grid process-grid">
+        <article class="card proc-card shimmer reveal">
+          <div class="proc-num">1</div>
+          <h3>Consulta</h3>
+          <p>Me escribís por WhatsApp y me contás qué problema tiene tu PC o qué querés mejorar. Sin formularios complicados.</p>
+        </article>
+        <article class="card proc-card shimmer reveal">
+          <div class="proc-num">2</div>
+          <h3>Diagnóstico</h3>
+          <p>Analizo el estado del equipo, detecto errores, procesos innecesarios y puntos que están bajando el rendimiento.</p>
+        </article>
+        <article class="card proc-card shimmer reveal">
+          <div class="proc-num">3</div>
+          <h3>Optimización</h3>
+          <p>Aplico configuraciones, limpieza del sistema, ajustes de rendimiento y mejoras específicas para tu equipo y uso.</p>
+        </article>
+        <article class="card proc-card shimmer reveal">
+          <div class="proc-num">4</div>
+          <h3>Resultado</h3>
+          <p>Tu PC más rápida, más estable y lista para jugar, trabajar o estudiar. Te explico qué se hizo y por qué.</p>
+        </article>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <a class="whatsapp-float" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" aria-label="WhatsApp">💬</a>
-  <button class="to-top" id="toTop" aria-label="Volver arriba">↑</button>
+  <!-- ╔══ PLANES ══╗ -->
+  <section id="precios" class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Planes</div>
+        <h2 class="sec-title">Elegí según tu necesidad</h2>
+        <p class="sec-sub">Opciones pensadas para distintos niveles, desde una mejora rápida hasta una puesta a punto más completa.</p>
+      </div>
+      <div style="margin-top:44px"></div>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
+      <div class="grid plans-grid">
+        <!-- Básico -->
+        <article class="card plan-card shimmer reveal">
+          <div class="plan-name">Básico</div>
+          <div class="plan-price">Gs. 50.000</div>
+          <p class="plan-desc">Ideal para una revisión rápida y mejora inicial del sistema.</p>
+          <ul class="plan-items">
+            <li class="plan-item"><span class="check-circle">✓</span>Revisión general del sistema</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Limpieza de archivos innecesarios</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Optimización básica de inicio</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Recomendaciones personalizadas</li>
+          </ul>
+          <a class="btn btn-ghost" style="width:100%;justify-content:center" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20B%C3%A1sico" target="_blank" rel="noopener">Elegir plan Básico</a>
+        </article>
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14 });
+        <!-- Gamer (featured) -->
+        <article class="card plan-card featured shimmer reveal">
+          <span class="plan-badge">Más elegido</span>
+          <div class="plan-name">Gamer</div>
+          <div class="plan-price">Gs. 100.000</div>
+          <p class="plan-desc">La mejor opción si querés una mejora real en juegos y rendimiento general.</p>
+          <ul class="plan-items">
+            <li class="plan-item"><span class="check-circle">✓</span>Optimización completa para juegos</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Ajustes de sistema operativo</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Mejora de estabilidad y temperatura</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Drivers actualizados</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Recomendaciones de hardware</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%;justify-content:center" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20Gamer" target="_blank" rel="noopener">Elegir plan Gamer</a>
+        </article>
 
-    reveals.forEach((el) => revealObserver.observe(el));
+        <!-- Full -->
+        <article class="card plan-card shimmer reveal">
+          <div class="plan-name">Full</div>
+          <div class="plan-price">Gs. 200.000</div>
+          <p class="plan-desc">Para dejar el equipo limpio, completo y listo para uso intensivo desde cero.</p>
+          <ul class="plan-items">
+            <li class="plan-item"><span class="check-circle">✓</span>Instalación limpia de Windows</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Drivers y programas esenciales</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Optimización completa gamer</li>
+            <li class="plan-item"><span class="check-circle">✓</span>Configuración final personalizada</li>
+          </ul>
+          <a class="btn btn-ghost" style="width:100%;justify-content:center" href="https://wa.me/595972510615?text=Hola%20quiero%20el%20plan%20Full" target="_blank" rel="noopener">Elegir plan Full</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach((item) => {
-      const btn = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
+  <!-- ╔══ RESULTADOS ══╗ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Qué esperás</div>
+        <h2 class="sec-title">Resultados reales y honestos</h2>
+        <p class="sec-sub">No prometemos FPS mágicos. Prometemos un sistema más limpio, más estable y mejor preparado para lo que usás.</p>
+      </div>
+      <div style="margin-top:44px"></div>
 
-      btn.addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
+      <div class="grid results-grid">
+        <article class="card result-card shimmer reveal">
+          <h3>Más fluidez</h3>
+          <p>Mejor respuesta general del sistema, menor sensación de pesadez y una experiencia más cómoda en uso diario y gaming.</p>
+        </article>
+        <article class="card result-card shimmer reveal">
+          <h3>Menos tirones</h3>
+          <p>Reducción de carga innecesaria y ajustes pensados para mejorar la estabilidad en juegos competitivos y uso intensivo.</p>
+        </article>
+        <article class="card result-card shimmer reveal">
+          <h3>Sistema ordenado</h3>
+          <p>Programas bien instalados, arranque más rápido y configuración más limpia para seguir usando la PC sin caos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        faqItems.forEach((other) => {
-          other.classList.remove('open');
-          other.querySelector('.faq-answer').style.maxHeight = null;
-        });
+  <!-- ╔══ STATS ══╗ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="grid stats-grid">
+        <article class="card stat-card shimmer reveal">
+          <strong data-count="120">0</strong>
+          <span>Equipos optimizados</span>
+        </article>
+        <article class="card stat-card shimmer reveal">
+          <strong data-count="95">0</strong>
+          <span>Clientes satisfechos</span>
+        </article>
+        <article class="card stat-card shimmer reveal">
+          <strong data-count="24">0</strong>
+          <span>Atención por WhatsApp</span>
+        </article>
+        <article class="card stat-card shimmer reveal">
+          <strong data-count="100">0</strong>
+          <span>Enfoque al rendimiento</span>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        if (!isOpen) {
-          item.classList.add('open');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        }
-      });
-    });
+  <!-- ╔══ TESTIMONIOS ══╗ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Opiniones</div>
+        <h2 class="sec-title">Lo que dicen los clientes</h2>
+        <p class="sec-sub">Resultados reales de equipos que pasaron por el servicio.</p>
+      </div>
+      <div style="margin-top:44px"></div>
 
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
+      <div class="grid testi-grid">
+        <article class="card testi-card shimmer reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">"Mi PC se sentía muy pesada y después del servicio quedó mucho más rápida y ordenada. Ahora los juegos van bien."</p>
+          <div class="testi-person">
+            <div class="avatar">A</div>
+            <div><div class="testi-name">Anibal</div><div class="testi-role">Cliente gamer</div></div>
+          </div>
+        </article>
 
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('open');
-      mobileMenu.classList.toggle('hidden');
-    });
+        <article class="card testi-card shimmer reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">"Muy claro al explicar qué se hizo, respondió rápido y dejó mi notebook lista para trabajar sin problemas."</p>
+          <div class="testi-person">
+            <div class="avatar">M</div>
+            <div><div class="testi-name">Marcela</div><div class="testi-role">Uso de oficina</div></div>
+          </div>
+        </article>
 
-    mobileMenu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuToggle.classList.remove('open');
-      });
-    });
+        <article class="card testi-card shimmer reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">"me funciono muy bien ."</p>
+          <div class="testi-person">
+            <div class="avatar">L</div>
+            <div><div class="testi-name">Luis</div><div class="testi-role">Cliente particular</div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    const toTop = document.getElementById('toTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) {
-        toTop.classList.add('show');
-      } else {
-        toTop.classList.remove('show');
+  <!-- ╔══ FAQ ══╗ -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Preguntas</div>
+        <h2 class="sec-title">Preguntas frecuentes</h2>
+        <p class="sec-sub">Todo lo que necesitás saber antes de contactarme.</p>
+      </div>
+      <div style="margin-top:44px"></div>
+
+      <div class="faq-wrap">
+        <article class="card faq-item shimmer reveal">
+          <button class="faq-btn" type="button">
+            <span>¿Qué tipo de equipos optimizás?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-body">
+            <p>PCs gamer, notebooks y equipos de uso diario que necesiten mejor rendimiento, limpieza del sistema o instalación de Windows. Si el equipo funciona pero rinde mal, lo más probable es que tenga solución.</p>
+          </div>
+        </article>
+
+        <article class="card faq-item shimmer reveal">
+          <button class="faq-btn" type="button">
+            <span>¿El servicio también sirve para gaming?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-body">
+            <p>Sí, es el enfoque principal. Está orientado a mejorar fluidez, reducir procesos innecesarios y dejar el sistema más limpio y estable para juegos competitivos como Fortnite, CS2, Valorant y similares.</p>
+          </div>
+        </article>
+
+        <article class="card faq-item shimmer reveal">
+          <button class="faq-btn" type="button">
+            <span>¿Incluye instalación de programas?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-body">
+            <p>Depende del plan elegido. Los planes Gamer y Full incluyen instalación de drivers y configuración. El plan Full además incluye instalación limpia de Windows con todo lo necesario para que el equipo quede listo.</p>
+          </div>
+        </article>
+
+        <article class="card faq-item shimmer reveal">
+          <button class="faq-btn" type="button">
+            <span>¿Prometés FPS exactos o resultados garantizados?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-body">
+            <p>No. Sería deshonesto prometerte números exactos sin ver el equipo. Lo que sí puedo asegurar es que el sistema va a quedar mejor configurado, más limpio y optimizado para rendir lo máximo que el hardware permite.</p>
+          </div>
+        </article>
+
+        <article class="card faq-item shimmer reveal">
+          <button class="faq-btn" type="button">
+            <span>¿Cómo me contacto?</span>
+            <span class="faq-plus">+</span>
+          </button>
+          <div class="faq-body">
+            <p>Podés escribirme por WhatsApp al 0972510615 o por correo a silviopaniagua6@gmail.com. La atención más rápida es siempre por WhatsApp.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══ CONTACTO ══╗ -->
+  <section id="contacto" class="section">
+    <div class="wrap">
+      <div class="center reveal">
+        <div class="sec-label">Contacto</div>
+        <h2 class="sec-title">Escribime directamente</h2>
+        <p class="sec-sub">Si querés optimizar tu PC, mejorar el rendimiento o consultar por soporte, la respuesta más rápida es por WhatsApp.</p>
+      </div>
+      <div style="margin-top:44px"></div>
+
+      <div class="contact-grid">
+        <article class="card contact-info shimmer reveal">
+          <h3>Hablemos</h3>
+          <p>Contame qué problema tiene tu PC o qué querés mejorar. Sin formularios complicados.</p>
+          <div class="contact-rows">
+            <div class="crow">
+              <span class="crow-icon">📱</span>
+              <div class="crow-text">
+                <strong>WhatsApp</strong>
+                <span>0972510615</span>
+              </div>
+            </div>
+            <div class="crow">
+              <span class="crow-icon">✉️</span>
+              <div class="crow-text">
+                <strong>Email</strong>
+                <span>silviopaniagua6@gmail.com</span>
+              </div>
+            </div>
+            <div class="crow">
+              <span class="crow-icon">📍</span>
+              <div class="crow-text">
+                <strong>Ubicación</strong>
+                <span>Paraguay · Atención remota y presencial</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-btns">
+            <a class="btn btn-wa" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" rel="noopener">💬 Escribir por WhatsApp</a>
+            <a class="btn btn-ghost" href="mailto:silviopaniagua6@gmail.com">Enviar correo</a>
+          </div>
+        </article>
+
+        <article class="card contact-form shimmer reveal">
+          <h3>Solicitud rápida</h3>
+          <p>Completá el formulario y te escribo automáticamente por WhatsApp con la info cargada.</p>
+          <form class="form-grid" id="quickForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="fNombre">Nombre</label>
+                <input id="fNombre" type="text" placeholder="Tu nombre" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="fTel">Teléfono</label>
+                <input id="fTel" type="tel" placeholder="Tu teléfono" autocomplete="tel">
+              </div>
+            </div>
+            <div class="field">
+              <label for="fTipo">Servicio que necesitás</label>
+              <select id="fTipo">
+                <option>Optimización gamer</option>
+                <option>Soporte técnico</option>
+                <option>Instalación de Windows</option>
+                <option>Limpieza y mantenimiento</option>
+                <option>Drivers y programas</option>
+                <option>Asesoría de compra</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fMsg">Descripción del problema</label>
+              <textarea id="fMsg" rows="4" placeholder="Contame qué pasa con tu PC o qué querés mejorar..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar por WhatsApp →</button>
+            <p class="form-note">Al enviar se abre WhatsApp con el mensaje listo. No se guarda ningún dato.</p>
+          </form>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔══ CTA FINAL ══╗ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="card cta-banner shimmer reveal">
+        <div>
+          <h3>Tu PC puede rendir mucho más de lo que está rindiendo ahora</h3>
+          <p>Si querés una mejora real en fluidez, orden y estabilidad, escribime y vemos cuál plan te conviene más.</p>
+        </div>
+        <div class="cta-btns">
+          <a class="btn btn-wa" href="https://wa.me/595972510615?text=Hola%20quiero%20mejorar%20el%20rendimiento%20de%20mi%20PC" target="_blank" rel="noopener">💬 Quiero mejorar mi PC</a>
+          <a class="btn btn-ghost" href="#precios">Ver precios</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ╔══ FOOTER ══╗ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <small>© 2026 SilvioTech. Todos los derechos reservados.</small>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#precios">Precios</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/595972510615?text=Hola%20quiero%20optimizar%20mi%20PC" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<button class="top-btn" id="topBtn" aria-label="Volver arriba">↑</button>
+
+<script>
+  /* ── REVEAL ON SCROLL ── */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('vis');
+        revealObs.unobserve(e.target);
       }
     });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObs.observe(el));
 
-    toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  /* ── MOBILE MENU ── */
+  const menuBtn  = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('hidden');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.classList.remove('open');
     });
+  });
 
-    const countEls = document.querySelectorAll('[data-count]');
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
+  /* ── SCROLL TO TOP ── */
+  const topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    topBtn.classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        const el = entry.target;
-        const target = parseInt(el.dataset.count, 10);
-        let current = 0;
-        const step = Math.max(1, Math.ceil(target / 40));
-
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          el.textContent = current + (target === 24 ? '/7' : '+');
-        }, 35);
-
-        countObserver.unobserve(el);
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-btn').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-body').style.maxHeight = null;
       });
-    }, { threshold: 0.5 });
-
-    countEls.forEach((el) => countObserver.observe(el));
-
-    const quickForm = document.getElementById('quickForm');
-    quickForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const tipo = document.getElementById('tipo').value;
-      const mensaje = document.getElementById('mensaje').value.trim();
-
-      const texto = `Hola, quiero solicitar un servicio.%0A%0A` +
-        `Nombre: ${nombre || '-'}%0A` +
-        `Teléfono: ${telefono || '-'}%0A` +
-        `Servicio: ${tipo}%0A` +
-        `Mensaje: ${mensaje || '-'}`;
-
-      window.open(`https://wa.me/595972510615?text=${texto}`, '_blank');
+      if (!isOpen) {
+        item.classList.add('open');
+        item.querySelector('.faq-body').style.maxHeight = item.querySelector('.faq-body').scrollHeight + 'px';
+      }
     });
+  });
 
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+  /* ── ACTIVE NAV ── */
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const activeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { threshold: 0.45 });
+  sections.forEach(s => activeObs.observe(s));
 
-    const activeObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          navLinks.forEach((link) => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-          });
-        }
-      });
-    }, { threshold: 0.45 });
+  /* ── COUNTER ANIMATION ── */
+  const counters = document.querySelectorAll('[data-count]');
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      let curr = 0;
+      const step = Math.max(1, Math.ceil(target / 50));
+      const suffix = target === 24 ? '/7' : '+';
+      const timer = setInterval(() => {
+        curr = Math.min(curr + step, target);
+        el.textContent = curr + suffix;
+        if (curr >= target) clearInterval(timer);
+      }, 30);
+      countObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(el => countObs.observe(el));
 
-    sections.forEach((section) => activeObserver.observe(section));
-  </script>
+  /* ── DIAGNOSTIC METERS ANIMATE ── */
+  (function() {
+    const hero = document.querySelector('.hero');
+    let animated = false;
+    const heroObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !animated) {
+        animated = true;
+        setTimeout(() => {
+          document.getElementById('cpuFill').style.width = '94%';
+          document.getElementById('ramFill').style.width = '87%';
+          document.getElementById('tmpFill').style.width = '91%';
+          document.getElementById('optFill').style.width = '12%';
+        }, 400);
+        heroObs.unobserve(hero);
+      }
+    }, { threshold: 0.1 });
+    if (hero) heroObs.observe(hero);
+  })();
+
+  /* ── GALLERY PARALLAX ── */
+  (function() {
+    const stage  = document.getElementById('galleryStage');
+    const col1   = document.getElementById('gCol1');
+    const col2   = document.getElementById('gCol2');
+    const col3   = document.getElementById('gCol3');
+    if (!stage || !col1 || !col2) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    let ticking = false;
+    let lastY = 0;
+
+    function update() {
+      const rect  = stage.getBoundingClientRect();
+      const vh    = window.innerHeight;
+      // progress: 0 when stage enters bottom, 1 when it leaves top
+      const progress = 1 - (rect.bottom / (vh + rect.height));
+      const clamped  = Math.max(-0.1, Math.min(1.1, progress));
+
+      const intensity = window.innerWidth < 640 ? 40 : 80;
+      const shift     = (clamped - 0.5) * intensity;
+
+      col1.style.transform = `translateY(${-shift}px)`;
+      col2.style.transform = `translateY(${shift}px)`;
+      if (col3) col3.style.transform = `translateY(${-shift * 0.4}px)`;
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    update();
+  })();
+
+  /* ── WHATSAPP FORM ── */
+  document.getElementById('quickForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre  = document.getElementById('fNombre').value.trim() || '-';
+    const telefono= document.getElementById('fTel').value.trim()    || '-';
+    const tipo    = document.getElementById('fTipo').value;
+    const mensaje = document.getElementById('fMsg').value.trim()    || '-';
+    const texto   = encodeURIComponent(
+      `Hola, quiero solicitar un servicio.\n\nNombre: ${nombre}\nTeléfono: ${telefono}\nServicio: ${tipo}\nDescripción: ${mensaje}`
+    );
+    window.open(`https://wa.me/595972510615?text=${texto}`, '_blank', 'noopener');
+  });
+</script>
+
 </body>
-</html>  
+</html>
